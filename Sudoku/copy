@@ -1,0 +1,44 @@
+bool solve_board(char board[9][9])
+{
+	if (is_complete(board))
+		return true;
+	else
+	{
+		//identify empty position on "board"
+		char empty_position[2];
+		int i = 0, j = 0;
+		while (!(board[i][j] == '.'))
+		{
+			if (i == 8)
+			{
+				i = 0;
+				j++;
+			}
+			else
+				i++;
+		}
+		empty_position[0] = 'A' + i;
+		empty_position[1] = '1' + j;
+
+		//fill "empty_position" with logically valid number then call 'solve_board'
+		char input = '1' - 1;
+		do
+		{
+			//use 'make_move' to input a valid number
+			do
+			{
+				//if "input" reaches 9, end function call 'solve_board';
+				//go back to previous board and keep increment previous "empty_position".
+				if (input == '9')
+				{
+					board[i][j] = '.';
+					return false;
+				}
+				input = input + 1;
+			}while (!make_move(empty_position, input, board));
+			
+		} while (!solve_board(board));
+
+		return true;
+	}
+}

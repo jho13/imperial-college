@@ -1,0 +1,12 @@
+As far as computation goes, the difficulty corresponds to how many logical possibilites the computer needs to try before finding the solution. Therefore I have chosen the time taken for the program to solve the mysteries as an indication of the difficulty. 
+
+'mystery1' is of "extremely hard" difficulty. 
+The time taken is around 0.27s
+
+'mystery2' is impossible to solve. 
+The function 'solve_board' tries all logical possibilites and it could not find a solution.
+
+'mystery3' is of "hard" difficulty.
+ The time taken is around 0.07s
+ 
+ As a reference, 'easy' took around 0.003s, 'medium' took around 0.0004s.
